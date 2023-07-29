@@ -78,3 +78,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "webpacker", "~> 5.4"
 
 gem "stimulus_reflex", "= 3.5.0.rc2"
+
+gem "font-awesome-sass", "~> 6.4.0"
