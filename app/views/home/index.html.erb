@@ -19,11 +19,13 @@
 
     <div id="main_conatiner" class="p-5 overflow-y-scroll lg:overflow-auto lg:mx-2 lg:row-start-1 lg:row-end-7 border border-gray-500 rounded-md shadow-md shadow-gray-500 col-start-3 col-end-7">
       <div class="flex flex-row justify-between">
-        <h1 class="font-bold text-4xl font-sans2">My Media Log </h1>
-        <button type="button" class="text-2xl border bg-amber-400 rounded-lg px-4" data-reflex="click->Home#showNewMediaForm">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        <h1 class="font-bold text-4xl font-sans">My Media Log </h1>
+        <div id="focus"> 
+          <%= render(partial: "home/new_media_button", locals: {media_type: "podcast"}) %>
+        </div>
       </div>
-        <div id="container" class="overflow-y-scroll">  </div>
+        <div id="container" class="overflow-y-scroll">
+          <%= render(partial: "home/landing_content") %>
+        </div>
     </div>
 </div>

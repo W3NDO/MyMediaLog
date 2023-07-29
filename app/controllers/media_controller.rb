@@ -22,10 +22,11 @@ class MediaController < ApplicationController
   # POST /media or /media.json
   def create
     @medium = Medium.new(medium_params)
+    @medium.user = current_user
 
     respond_to do |format|
       if @medium.save
-        format.html { redirect_to medium_url(@medium), notice: "Medium was successfully created." }
+        format.html { redirect_to root_path, notice: "Medium was successfully created." }
         format.json { render :show, status: :created, location: @medium }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class MediaController < ApplicationController
   def update
     respond_to do |format|
       if @medium.update(medium_params)
-        format.html { redirect_to medium_url(@medium), notice: "Medium was successfully updated." }
+        format.html { redirect_to root_path, notice: "Medium was successfully updated." }
         format.json { render :show, status: :ok, location: @medium }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class MediaController < ApplicationController
     @medium.destroy
 
     respond_to do |format|
-      format.html { redirect_to media_url, notice: "Medium was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Medium was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,6 @@ class MediaController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def medium_params
-      params.require(:medium).permit(:media_type, :media_name, :rating, :review, :status)
+      params.require(:medium).permit(:media_type, :media_name, :rating, :review, :status, :creator, :link)
     end
 end

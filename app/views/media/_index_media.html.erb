@@ -3,35 +3,12 @@
 
 <div>
     <% unless media.empty? %>
-        <% media.each do |media| %>
-            <div class="bg-amber-400 rounded-md border border-black my-1 p-5">
-                <div class="flex flex-row justify-between">
-                    <span class="text-2xl font-bold "> 
-                        <% if media.link.nil? %>
-                            <%= media.media_name %> <span class="text-lg"> by <%= media.creator %> </span>
-                        <% else %>
-                            <a href=<%= media.link %> > 
-                                <i class="fa-solid fa-link"></i>
-                                <%= media.media_name %> 
-                            </a> <span class="text-lg"> by <%= media.creator %> </span>
-                        <% end %>
-                    </span>
-
-                    <span> <%= media.status %> </span>
-                </div>
-
-                <div>
-                    <span> Rating:  <%= media.rating %> </span>
-                </div>
-
-                <div>
-                    <span> Review: <%= media.review %> </span>
-                </div>
-            </div>
+        <% media.order(created_at: :desc).each do |media| %>
+            <%= render(partial: "media/media_card", locals: {media: media}) %>
         <% end %>
     <% else %>
         <div>
-            <span> Hey there, you don't seem to have any <%= media_types[medium].gsub("_", " ") %> yet. No Worries though, click the button below to add some right away </span>
+            <span> Hey there, you don't seem to have any <%= media_types[medium].gsub("_", " ") %> logged yet. No Worries though, click the '+' button above to add some right away </span>
         </div>
     <% end %>
 </div>

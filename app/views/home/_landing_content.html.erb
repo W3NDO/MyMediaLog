@@ -1,0 +1,13 @@
+<% media = current_user.media.empty? ? nil : current_user.media[-1] %>
+
+<div class="my-10">
+    <% if media.nil? %>
+        <span> Hi there. Welcome to your own media log. All we do is help you track the books you read, shows you watch and podcasts you listen to. </span>
+        <span> The pane on your left allows you to switch your media categories </span>
+        <span> The big plus button at the top allows you to add new media. Really simple. </span>
+        <span> We hope you like it. :) </span>
+    <% else %>
+        <span class="text-xl text-center"> This is your most recent piece of media. you can update its status and rating out of five with the drop downs on the right </span>
+        <%= render(partial: "media/media_card", locals: {media: media} )%>
+    <% end%>
+</div>
