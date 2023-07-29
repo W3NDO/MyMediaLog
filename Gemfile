@@ -74,3 +74,7 @@ end
 gem "devise", "~> 4.9"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "webpacker", "~> 5.4"
+
+gem "stimulus_reflex", "= 3.5.0.rc2"

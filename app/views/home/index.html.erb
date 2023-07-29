@@ -7,7 +7,7 @@
         <span class="text-black border border-red-600"> <%= current_user.handle.nil? ? current_user.handle : current_user.email %> </span>
         <div class="flex flex-col">
           <% media_types.each do |type, value| %>
-            <button type="button" class="p-2 m-2 bg-amber-400 rounded" data-reflex="click->Home#increment" data-media=<%= value %>> 
+            <button type="button" class="p-2 m-2 bg-amber-400 rounded" data-reflex="click->Home#test" data-media=<%= value %>> 
               <span class="text-xl font-sans3"> 
                 <%= value %> 
               </span> 
