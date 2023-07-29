@@ -23,10 +23,26 @@
         </div>
     </div>
 
-    <div class="m-1">
-        <button type="button" data-reflex="click->Home#showNewMediaForm" data-id=<%= media.id%> >
+    <div class="m-1 flex flex-row justify-between">
+        <button 
+            type="button" 
+            data-reflex="click->Home#showNewMediaForm" 
+            data-id=<%= media.id%> 
+            class="border border-black rounded-lg p-2"
+        >
             <i class="fa-solid fa-pen-to-square"></i>
             <span> Edit Review. </span> 
+        </button>
+
+        <button 
+            type="button" 
+            data-confirm="Are you sure you want to delete this log? This action can not be undone" 
+            data-reflex="click->Home#deleteMedia" 
+            data-id=<%= media.id%>
+            class="border border-black rounded-lg p-2"
+        >
+            <i class="fa-solid fa-trash"></i>
+            <span> Delete this log </span>
         </button>
     </div>
 </div>

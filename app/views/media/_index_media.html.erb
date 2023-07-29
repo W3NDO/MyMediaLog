@@ -1,5 +1,5 @@
 <% media_types = { :podcast =>  "Podcasts", :book =>  "Books", :youtubeVideo =>  "Youtube_Videos", :tvShow =>  "TV_Shows", :movies =>  "Movies", :music => "Music" } %>
-<% media = Medium.public_send(medium) %>
+<% media = Medium.public_send(medium_type) %>
 
 <div>
     <% unless media.empty? %>
@@ -8,7 +8,7 @@
         <% end %>
     <% else %>
         <div>
-            <span> Hey there, you don't seem to have any <%= media_types[medium].gsub("_", " ") %> logged yet. No Worries though, click the '+' button above to add some right away </span>
+            <span> Hey there, you don't seem to have any media logged for this category yet. No Worries though, click the '+' button above to add some right away </span>
         </div>
     <% end %>
 </div>

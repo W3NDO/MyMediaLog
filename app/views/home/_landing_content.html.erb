@@ -1,4 +1,4 @@
-<% media = current_user.media.empty? ? nil : current_user.media[-1] %>
+<% media = current_user.media.empty? ? nil : current_user.media.last %>
 
 <div class="my-10">
     <% if media.nil? %>
