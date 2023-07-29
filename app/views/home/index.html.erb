@@ -7,9 +7,9 @@
         <span class="text-black border border-red-600"> <%= current_user.handle.nil? ? current_user.handle : current_user.email %> </span>
         <div class="flex flex-col">
           <% media_types.each do |type, value| %>
-            <button type="button" class="p-2 m-2 bg-amber-400 rounded" data-reflex="click->Home#test" data-media=<%= value %>> 
+            <button type="button" class="p-2 m-2 bg-amber-400 rounded" data-reflex="click->Home#showMedia" data-media=<%= type %>> 
               <span class="text-xl font-sans3"> 
-                <%= value.gsub("_", " ") %> 
+                <%= value.gsub("_", " ") %>
               </span> 
             </button>
           <% end %>
@@ -18,8 +18,14 @@
     </aside>
 
     <div id="main_conatiner" class="p-5 overflow-y-scroll lg:overflow-auto lg:mx-2 lg:row-start-1 lg:row-end-7 border border-gray-500 rounded-md shadow-md shadow-gray-500 col-start-3 col-end-7">
-      <h1 class="font-bold text-4xl font-sans2">My Media Log</h1>
-        Main Container
-        <div id="test">  </div>
+      <div class="flex flex-row justify-between">
+        <h1 class="font-bold text-4xl font-sans">My Media Log </h1>
+        <div id="focus"> 
+          <%= render(partial: "home/new_media_button", locals: {media_type: "podcast"}) %>
+        </div>
+      </div>
+        <div id="container" class="overflow-y-scroll">
+          <%= render(partial: "home/landing_content") %>
+        </div>
     </div>
 </div>

@@ -15,4 +15,12 @@ class Medium < ApplicationRecord
     ongoing: 1,
     finished: 2
   }
+
+  enum rating: {
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5
+  }
 end

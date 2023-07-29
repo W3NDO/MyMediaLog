@@ -1,0 +1,14 @@
+<% media_types = { :podcast =>  "Podcasts", :book =>  "Books", :youtubeVideo =>  "Youtube_Videos", :tvShow =>  "TV_Shows", :movies =>  "Movies", :music => "Music" } %>
+<% media = Medium.public_send(medium) %>
+
+<div>
+    <% unless media.empty? %>
+        <% media.order(created_at: :desc).each do |media| %>
+            <%= render(partial: "media/media_card", locals: {media: media}) %>
+        <% end %>
+    <% else %>
+        <div>
+            <span> Hey there, you don't seem to have any <%= media_types[medium].gsub("_", " ") %> logged yet. No Worries though, click the '+' button above to add some right away </span>
+        </div>
+    <% end %>
+</div>
