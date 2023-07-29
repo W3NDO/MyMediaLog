@@ -20,14 +20,21 @@ class HomeReflex < ApplicationReflex
   def updateStatus
     media = Medium.find(element.dataset[:id])
     new_status = element.value
-    media.update(status: new_status)
-    morph :nothing
+    if media.update(status: new_status)
+      show_notification("Updated status for #{media.media_name}")
+    else
+      show_notification("Failed to update status. Please try again later")
+    end
   end
 
   def updateRating
     media = Medium.find(element.dataset[:id])
     rating = element.value
-    media.update(rating: rating)
-    morph :nothing
+    if media.update(rating: rating)
+      show_notification("Updated rating for #{media.media_name}")
+    else
+      show_notification("Failed to update rating. Please try again later")
+    end
+    # morph :nothing
   end
 end

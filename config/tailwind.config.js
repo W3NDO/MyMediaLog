@@ -14,6 +14,17 @@ module.exports = {
         sans2: ['Nunito', ...defaultTheme.fontFamily.sans],
         sans3: ['Poppins', ...defaultTheme.fontFamily.sans]
       },
+      keyframes: {
+        'fade-out': {
+          '0%': {'opacity': 0},
+          '7.5%': {'opacity': 1},
+          '92.5%': {'opacity': 1},
+          '100%': {'opacity': 0,}
+        }
+      },
+      animation: {
+        'fade-out': 'fade-out 7s forwards'
+      }
     },
   },
   plugins: [

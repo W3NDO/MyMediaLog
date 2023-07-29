@@ -16,4 +16,8 @@ class ApplicationReflex < StimulusReflex::Reflex
   #
   # For code examples, considerations and caveats, see:
   # https://docs.stimulusreflex.com/rtfm/patterns#internationalization
+
+  def show_notification(message)
+    morph "#notification_container", render(partial: "shared/basic_notification", locals: { message: message})
+  end
 end
