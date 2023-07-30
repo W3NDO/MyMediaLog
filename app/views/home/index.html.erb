@@ -1,8 +1,11 @@
 <% media_types = { :podcast =>  "Podcasts", :book =>  "Books", :youtubeVideo =>  "Youtube_Videos", :tvShow =>  "TV_Shows", :movies =>  "Movies", :music => "Music" } %>
 
-<div class="lg:my-5 w-full overflow-x-hidden h-5/6 max-h-screen lg:grid grid-cols-6 grid-rows-6 flex-col">
-    <aside id="sidebar" class="border border-gray-500 rounded-md shadow-md shadow-gray-500 lg:mx-2 lg:row-start-1 lg:row-end-7 lg:col-start-1 lg:col-end-3
-                lg:grid grid-rows-6 overflow-y-scroll max-h" data-controller="menu-control">
+<div class="lg:my-5 w-full overflow-x-hidden h-full lg:h-5/6 max-h-screen lg:grid grid-cols-6 grid-rows-6 flex-col">
+    <aside
+        id="sidebar"
+        class="border border-gray-500 rounded-md shadow-md shadow-gray-500 lg:mx-2 lg:row-start-1 lg:row-end-7 lg:col-start-1 lg:col-end-3 lg:grid grid-rows-6 overflow-y-scroll max-h"
+        data-controller="menu-control"
+    >
       <div class="m-5">
         <button class="lg:hidden w-full bg-amber-400 rounded flex flex-row justify-around p-2 "
             data-action="click->menu-control#toggleDropwdown" type="button">
