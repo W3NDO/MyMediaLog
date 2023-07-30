@@ -1,43 +1,46 @@
 <div class="bg-amber-400 rounded-md border border-black my-1 p-5 font-sans2">
-    <div class="flex flex-row justify-between m-1">
-        <span class="text-2xl font-bold "> 
+    <div class="flex flex-col justify-between m-1">
+        <span class="text-2xl font-bold ">
             <% if media.link.nil? %>
                 <%= media.media_name %> <span class="text-lg"> by <%= media.creator %> </span>
             <% else %>
-                <a href=<%= media.link %> > 
+                <a href=<%= media.link %> >
                     <i class="fa-solid fa-link"></i>
-                    <%= media.media_name %> 
+                    <%= media.media_name %>
                 </a> <span class="text-lg"> by <%= media.creator %> </span>
             <% end %>
         </span>
 
-        <div class="my-1">
-            <%= select_tag :media_type, options_for_select(Medium.statuses.keys, media.status), class: "rounded-lg", data: { reflex: "change->Home#updateStatus", id: media.id} %>
-        </div>
+        <span> <strong> Review: </strong> <%= media.review %> </span>
     </div>
 
-    <div class="flex flex-row justify-between m-1">
-        <span> <strong> Review: </strong> <%= media.review %> </span>
+    <div class="flex flex-row justify-between">
         <div class="my-1">
+            <span class="font-sans2 font-bold text-center"> Status </span>
+            <%= select_tag :media_type, options_for_select(Medium.statuses.keys, media.status), class: "rounded-lg", data: { reflex: "change->Home#updateStatus", id: media.id} %>
+        </div>
+
+        <div class="my-1">
+            <span class="font-sans2 font-bold text-center"> Rating </span>
             <%= select_tag :rating, options_for_select(Medium.ratings.keys, media.rating), class: "rounded-lg", data: { reflex: "change->Home#updateRating", id: media.id} %>
         </div>
     </div>
 
     <div class="m-1 flex flex-row justify-between">
-        <button 
-            type="button" 
-            data-reflex="click->Home#showNewMediaForm" 
-            data-id=<%= media.id%> 
+        <button
+            type="button"
+            data-reflex="click->Home#showNewMediaForm"
+            data-id=<%= media.id%>
             class="border border-black rounded-lg p-2"
         >
             <i class="fa-solid fa-pen-to-square"></i>
-            <span> Edit Review. </span> 
+            <span> Edit Review. </span>
         </button>
 
-        <button 
-            type="button" 
-            data-confirm="Are you sure you want to delete this log? This action can not be undone" 
-            data-reflex="click->Home#deleteMedia" 
+        <button
+            type="button"
+            data-confirm="Are you sure you want to delete this log? This action can not be undone"
+            data-reflex="click->Home#deleteMedia"
             data-id=<%= media.id%>
             class="border border-black rounded-lg p-2"
         >

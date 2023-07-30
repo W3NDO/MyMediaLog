@@ -6,6 +6,8 @@ class HomeReflex < ApplicationReflex
 
   def showMedia(media_type: nil)
     media_type = media_type || element.dataset[:media].to_sym
+    media_types = { :podcast =>  "Podcasts", :book =>  "Books", :youtubeVideo =>  "Youtube_Videos", :tvShow =>  "TV_Shows", :movies =>  "Movies", :music => "Music" }
+    morph "#context", media_types[media_type]
     morph "#focus", render(partial: "home/new_media_button", locals: {media_type: media_type})
     morph "#container", render(partial: "media/index_media", locals: {medium_type: media_type})
   end
