@@ -1,13 +1,18 @@
 <% media = current_user.media.empty? ? nil : current_user.media.last %>
 
 <div class="my-10">
-    <% if media.nil? %>
-        <span> Hi there. Welcome to your own media log. All we do is help you track the books you read, shows you watch and podcasts you listen to. </span>
-        <span> The pane on your left allows you to switch your media categories </span>
-        <span> The big plus button at the top allows you to add new media. Really simple. </span>
-        <span> We hope you like it. :) </span>
-    <% else %>
-        <span class="text-xl text-center"> This is your most recently updated media. you can update its status and rating out of five with the labelled drop down. </span>
-        <%= render(partial: "media/media_card", locals: {media: media} )%>
-    <% end%>
+    <span class="text-sm text-center">
+        We're working on optimizing the app for mobile performance. For now please bear with us and visit the website on your desktop. :)
+    </span>
+    <div class="my-2">
+        <% if media.nil? %>
+            <span> Hi there. Welcome to your own media log. All we do is help you track the books you read, shows you watch and podcasts you listen to. </span>
+            <span> The pane on your left allows you to switch your media categories </span>
+            <span> The big plus button at the top allows you to add new media. Really simple. </span>
+            <span> We hope you like it. :) </span>
+        <% else %>
+            <span class="text-xl text-center"> Recent Media. </span>
+            <%= render(partial: "media/media_card", locals: {media: media} )%>
+        <% end %>
+    </div>
 </div>
